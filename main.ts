@@ -8,6 +8,11 @@
 let neopixelStrip: neopixel.Strip = null
 let lightLevel = input.lightLevel()
 
+// clear screen and show happy face(-__-)
+basic.clearScreen()
+basic.showIcon(IconNames.Happy)
+
+// when button A is pressed
 input.onButtonPressed(Button.A, function() {
     if (lightLevel <=51) {
         neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
@@ -18,6 +23,30 @@ input.onButtonPressed(Button.A, function() {
         neopixelStrip.show()
         basic.showIcon(IconNames.Happy)
     }
-    
-    if (lightLevel)
+     
+    if (lightLevel > 52) {
+        neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+    }
+
+    if (lightLevel > 104) {
+        neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+        neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
+    }
+
+    if (lightLevel > 156) {
+        neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+        neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
+        neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
+    }
+
+    if (lightLevel > 208) {
+        neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+        neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
+        neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
+        neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Red))
+    }
+
+    // clear screen and show happy face
+    basic.clearScreen()
+    basic.showIcon(IconNames.Happy)
 })
